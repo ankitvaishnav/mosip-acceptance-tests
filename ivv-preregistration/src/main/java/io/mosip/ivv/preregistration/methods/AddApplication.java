@@ -32,7 +32,17 @@ public class AddApplication extends BaseStep implements StepInterface {
             IDObjectField idField = entry.getValue();
             if(idField.getType().equals(IDObjectField.type.multilang)){
                 JSONArray jvals = new JSONArray();
-                if(!store.getCurrentPerson().getPrimaryLang().isEmpty()){
+
+                if(store.getCurrentPerson().getPrimaryLang()!=null){
+//                    JSONObject obj = new JSONObject(); //rahul
+//                    obj.put("value", idField.getPrimaryValue());
+//                    obj.put("language", store.getCurrentPerson().getPrimaryLang());
+//                    jvals.add(0,obj);
+
+
+
+
+
                     jvals.add(new JSONObject(
                             new HashMap<String, String>() {{
                                 put("value", idField.getPrimaryValue());
@@ -40,7 +50,13 @@ public class AddApplication extends BaseStep implements StepInterface {
                             }}
                     ));
                 }
-                if(!store.getCurrentPerson().getSecondaryLang().isEmpty()){
+                if(store.getCurrentPerson().getSecondaryLang()!=null){//.isEmpty()
+////
+//                    JSONObject obj = new JSONObject(); //rahul
+//                    obj.put("value", idField.getSecondaryValue());
+//                    obj.put("language", store.getCurrentPerson().getSecondaryLang());
+//                    jvals.add(1, obj);
+
                     jvals.add(new JSONObject(
                             new HashMap<String, String>() {{
                                 put("value", idField.getSecondaryValue());
